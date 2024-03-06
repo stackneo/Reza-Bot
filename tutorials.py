@@ -2,7 +2,7 @@ import asyncio
 import discord
 
 
-# Tutorial class to create table.
+# Tutorial class to create list.
 
 # TODO: Find a way to embed a YouTube Playlist (also maybe pretty up the dropdown menu)
 class Tutorials(discord.ui.View):
@@ -30,15 +30,25 @@ class Tutorials(discord.ui.View):
         ]
     )
     async def on_select(self, select, interaction):
-        # Outputs a different message depending on the drop down the user selects.
+        embed = discord.Embed(title=f"Tutorial for {select.values[0]}", description="Here are some helpful tutorials for this module", color=discord.Color.random())
         if select.values[0] == "CO1105":
-            await interaction.response.send_message("You selected Object Oriented Programming")
+            embed.set_image(url="https://cdn.freebiesupply.com/logos/large/2x/java-logo-png-transparent.png")
+            embed.add_field(name="Java",value="WIP, Come back later!", inline=True)
         elif select.values[0] == "CO1106":
-            await interaction.response.send_message("You selected Requirements Engineering")
+            embed.set_image(url="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png")
+            embed.add_field(name="Git",value="[Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)", inline=True)
         elif select.values[0] == "CO1107":
-            await interaction.response.send_message("You selected Advanced Programming")
+            embed.set_image(url="https://cdn.freebiesupply.com/logos/large/2x/python-5-logo-png-transparent.png")
+            embed.add_field(name="Week 2", value="[Playlist](https://www.youtube.com/playlist?list=PLeVt6bfkArKciyZXBQB4v48Z2ccA7L3El)", inline=True)
+            embed.add_field(name="Week 3", value="[Playlist](https://www.youtube.com/playlist?list=PLeVt6bfkArKdRvReeiigILJWhfepMHt6H)", inline=True)
+            embed.add_field(name="Week 4", value="[Video](https://youtu.be/m1Fjdnj_Mds)", inline=True)
+            embed.add_field(name="Week 5", value="[Playlist](https://www.youtube.com/playlist?list=PLeVt6bfkArKcKV42o5N8ITcGxnPCjCHdH)", inline=True)
+            embed.add_field(name="Week 6", value="[Video](https://youtu.be/JlMyYuY1aXU)", inline=True)
         else:
-            await interaction.response.send_message("You selected Foundations of Computation")
+            embed.set_image(url="https://cms-media.bartleby.com/wp-content/uploads/sites/2/2021/05/31175359/Theoretical-Computer-Science-1-1024x389.jpg")
+            embed.add_field(name="Theory",value="WIP, Come back later!", inline=True)
+        embed.set_footer(text="Bot created by: kaeini")
+        await interaction.response.send_message(embed=embed)
 
 
 async def tutorials(ctx):
@@ -47,3 +57,6 @@ async def tutorials(ctx):
     await ctx.followup.send("‎", delete_after=0.1)
     await asyncio.sleep(15)
     await message.delete()
+
+
+

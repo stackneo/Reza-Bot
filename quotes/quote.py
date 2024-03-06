@@ -2,6 +2,6 @@ import random
 from markdown_strings import italics, bold
 
 
-async def quote(ctx):
-    line = random.choice(open('/home/kaeini/Reza_Bot/quotes/quotes.txt').readlines())
+async def quote(ctx,textfile):
+    line = random.choice(textfile)
     await ctx.respond(bold(line) + italics("~ Reza"))
