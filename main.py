@@ -1,14 +1,18 @@
 import discord
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 from quotes.quote import quote
 from tutorials import tutorials
 from weather import weather
 
+
 load_dotenv()
 bot = discord.Bot()
 
-textfile = open('/home/kaeini/Reza_Bot/quotes/quotes.txt').readlines()
+#Makes sure textfile is not hardcoded.
+current_directory = os.path.dirname(os.path.abspath(__file__))
+textfile = open(Path(current_directory) / "quotes" / "quotes.txt").readlines()
 
 
 @bot.event
