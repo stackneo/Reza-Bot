@@ -73,7 +73,7 @@ Contributions are welcomed and encouraged, feel free to open a PR if you have bu
 
  - This bot is powered by [PyCord](https://github.com/Pycord-Development/pycord)
  - This bot also makes use of [python-dotenv](https://github.com/theskumar/python-dotenv)
- - This bot also makes us of [aiohttp](https://github.com/aio-libs/aiohttp)
+ - This bot also makes use of [aiohttp](https://github.com/aio-libs/aiohttp)
 
 
 ## License
