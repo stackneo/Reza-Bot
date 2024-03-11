@@ -36,7 +36,7 @@ class Tutorials(discord.ui.View):
             embed.add_field(name="Inheritance & Polymorphism",value="[Link](https://www.codecademy.com/learn/learn-java-classes-and-methods)", inline=True)
         elif select.values[0] == "CO1106":
             embed.set_image(url="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png")
-            embed.add_field(name="Git",value="[Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)", inline=True)
+            embed.add_field(name="Gitbut afaik that's the only new thing covered ",value="[Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)", inline=True)
         elif select.values[0] == "CO1107":
             embed.set_image(url="https://cdn.freebiesupply.com/logos/large/2x/python-5-logo-png-transparent.png")
             embed.add_field(name="Week 2", value="[Playlist](https://www.youtube.com/playlist?list=PLeVt6bfkArKciyZXBQB4v48Z2ccA7L3El)", inline=True)
@@ -46,6 +46,7 @@ class Tutorials(discord.ui.View):
             embed.add_field(name="Week 6", value="[Video](https://youtu.be/JlMyYuY1aXU)", inline=True)
             embed.add_field(name="Week 7", value="[Playlist](https://www.youtube.com/playlist?list=PLeVt6bfkArKdPM_kC0PWwlaG2-HswSa0g)", inline=True)
             embed.add_field(name="Week 8", value="[Video](https://youtu.be/oSWTXtMglKE)", inline=True)
+            embed.add_field(name="Week 9", value="[Video](https://youtu.be/t0Cq6tVNRBA)", inline=True)
         else:
             embed.set_image(url="https://cms-media.bartleby.com/wp-content/uploads/sites/2/2021/05/31175359/Theoretical-Computer-Science-1-1024x389.jpg")
             embed.add_field(name="Theory",value="WIP! If you find any resources that would be helpful. Please reach out!", inline=True)
