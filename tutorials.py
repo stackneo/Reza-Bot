@@ -24,6 +24,11 @@ class Tutorials(discord.ui.View):
             discord.SelectOption(
                 label="CO1108",
                 description="Foundations of Computation"
+            ),
+
+            discord.SelectOption(
+                label="CO2102",
+                description="Databases & Domain Modelling"
             )
         ]
     )
@@ -44,28 +49,30 @@ class Tutorials(discord.ui.View):
             embed.add_field(name="Week 4", value="[Video](https://youtu.be/m1Fjdnj_Mds)", inline=True)
             embed.add_field(name="Week 5", value="[Playlist](https://www.youtube.com/playlist?list=PLeVt6bfkArKcKV42o5N8ITcGxnPCjCHdH)", inline=True)
             embed.add_field(name="Week 6", value="[Video](https://youtu.be/JlMyYuY1aXU)", inline=True)
-            embed.add_field(name="Week 7", value="[Playlist](https://www.youtube.com/playlist?list=PLeVt6bfkArKdPM_kC0PWwlaG2-HswSa0g)", inline=True)
-            embed.add_field(name="Week 8", value="[Video](https://youtu.be/oSWTXtMglKE)", inline=True)
-            embed.add_field(name="Week 9", value="[Video](https://youtu.be/t0Cq6tVNRBA)", inline=True)
+        elif select.values[0] == "CO2102":
+            embed.set_image(url="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Sql_data_base_with_logo.png/640px-Sql_data_base_with_logo.png")
+            embed.add_field(name="Week 1", value="[Playlist](https://www.youtube.com/playlist?list=PLeVt6bfkArKcDa27fwSMqOb7_LnAMeAOI)")
         else:
             embed.set_image(url="https://cms-media.bartleby.com/wp-content/uploads/sites/2/2021/05/31175359/Theoretical-Computer-Science-1-1024x389.jpg")
             embed.add_field(name="Theory",value="WIP! If you find any resources that would be helpful. Please reach out!", inline=True)
         embed.set_footer(text="Bot created by: kaeini")
+        #Workaround for the DM function failing occasionally.
         await interaction.response.defer()
         user = interaction.user
+        #Sends user embed
         await user.send(embed=embed)
+        #Lets user know embed has sent.
         await interaction.followup.send(f"The material for {select.values[0]} has been DM'd to you {interaction.user.name}")
 
 
-
-
 async def tutorials(ctx):
-    await ctx.defer()
-    message = await ctx.send("", view=Tutorials())
-    await ctx.followup.send("‎", delete_after=0.001)
-    await asyncio.sleep(15)
-    await message.delete()
-
-
+    try:
+        await ctx.defer()
+        message = await ctx.send("", view=Tutorials())
+        await ctx.followup.send("‎", delete_after=0.001)
+        await asyncio.sleep(15)
+        await message.delete()
+    except discord.NotFound:
+        print("No tutorials found")
 
 
